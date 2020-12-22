@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const router = require('./routes/index');
-
+//A little feature unstable;
 //App config
 dotenv.config();
 app.set('view engine', 'ejs');
@@ -18,8 +18,8 @@ app.use(express.json());
 
 //Database config
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log('DB connected'))
-.catch(err => console.log(err.message));
+    .then(() => console.log('DB connected'))
+    .catch(err => console.log(err.message));
 
 //Routes
 app.use('/', router);
